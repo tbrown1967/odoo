@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_fns_vendor_price_sheet_user,fns.vendor.price.sheet.user,fns.vendor.price.sheet,base.group_user,r,
+access_fns_vendor_price_sheet_system,fns.vendor.price.sheet.system,fns.vendor.price.sheet,base.group_system,crud,
+access_fns_vendor_price_user,fns.vendor.price.user,fns.vendor.price,base.group_user,r,
+access_fns_vendor_price_system,fns.vendor.price.system,fns.vendor.price,base.group_system,crud,

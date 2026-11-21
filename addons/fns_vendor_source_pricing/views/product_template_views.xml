@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_template_form_vendor_prices" model="ir.ui.view">
+        <field name="name">product.template.form.fns.vendor.prices</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="fns_vendor_source_prices" string="Vendor Source Pricing"
+                      groups="base.group_user" invisible="not fns_vendor_price_ids">
+                    <group>
+                        <group string="Current">
+                            <field name="fns_price_effective_date"/>
+                            <field name="fns_vendor_currency_id" invisible="1"/>
+                            <field name="fns_map_price"/>
+                            <field name="fns_dealer_price"/>
+                        </group>
+                    </group>
+                    <field name="fns_vendor_price_ids" readonly="1">
+                        <list>
+                            <field name="effective_date"/>
+                            <field name="partner_id"/>
+                            <field name="vendor_sku"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="map_price"/>
+                            <field name="dealer_price"/>
+                            <field name="sheet_id"/>
+                            <field name="source_note" optional="hide"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_template_list_vendor_prices" model="ir.ui.view">
+        <field name="name">product.template.list.fns.vendor.prices</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="default_code" position="after">
+                <field name="fns_vendor_currency_id" column_invisible="1" groups="base.group_user"/>
+                <field name="fns_price_effective_date" optional="hide" groups="base.group_user"/>
+                <field name="fns_map_price" optional="hide" groups="base.group_user"/>
+                <field name="fns_dealer_price" optional="hide" groups="base.group_user"/>
+            </field>
+        </field>
+    </record>
+</odoo>
